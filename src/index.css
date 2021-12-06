@@ -53,8 +53,7 @@ input[type=checkbox]:before {
   	align-items: center;
 	height: 120px;
 	background-color: rgb(81, 81, 189);
-	box-shadow: 0 3px 8px -2px gray;
-
+	box-shadow: 0 3px 8px -4px gray;
 }
 
 .add-item-form  input, select, button {

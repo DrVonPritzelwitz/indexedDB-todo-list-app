@@ -16,10 +16,8 @@ export default function TodoList() {
 		await db.todoItems.delete(id);
 	}
 
-	const markAsDone = async (id, currentState) => {
+	const markAsDone = async (id) => {
 		console.log('click:', id);
-
-		await db.todoItems.update(id, {todoStatusDone: !currentState})
 	}
 
 	let todoList = allItems?.map(i =>(
@@ -27,18 +25,13 @@ export default function TodoList() {
 			<div className="list-item-box">
 				<div className="todo-info">
 					<span className="todo-type">{i.todoCategory}</span>
-					<span
-						className="todo-message"
-						style={{textDecoration: i.todoStatusDone ? 'line-through' : 'none'}}
-					>
-							{i.todoTitle}
-					</span>
+					<span className="todo-message">{i.todoTitle}</span>
 				</div>
 				<div>
 					<ToggleButton
 						value="check"
-						selected={i.todoStatusDone}
-						onChange={() => markAsDone(i.id, i.todoStatusDone)}
+						selected={false}
+						onChange={() => markAsDone(i.id)}
 					>
 						<CheckIcon />
 					</ToggleButton>
